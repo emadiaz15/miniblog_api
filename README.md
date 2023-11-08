@@ -2,7 +2,7 @@
 
 Bienvenido a la API Miniblog, una plataforma diseñada para permitir a los usuarios compartir sus pensamientos, ideas y experiencias a través de publicaciones y comentarios. Miniblog es una herramienta que facilita la creación, gestión y participación en una comunidad virtual.
 
-### Esta aplicación te brinda la capacidad de:
+## Esta aplicación te brinda la capacidad de:
 
 - **Registrarte y Autenticarte:** Crea tu cuenta y accede de forma segura para comenzar a interactuar con la plataforma.
 
@@ -14,7 +14,7 @@ Bienvenido a la API Miniblog, una plataforma diseñada para permitir a los usuar
 
 - **Seguridad y Privacidad:** Mantenemos tus datos seguros y respetamos tu privacidad.
 
-# Tutorial
+## Tutorial
 
 1. Construir la aplicacion
 ```bash
@@ -37,5 +37,10 @@ Asegúrate de tener instalados los siguientes componentes antes de ejecutar la a
 
 [DOCKER](https://www.docker.com/)
   
-### Contribuciones
+## Contribuciones
 Si deseas contribuir a este proyecto, puedes hacer un fork y enviar pull requests.
+
+## Tecnologías Utilizadas
+- Flask
+- MySql
+- Docker
