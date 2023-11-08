@@ -1,0 +1,31 @@
+version: '3.8'  # Versión de Docker Compose utilizada en el archivo
+
+services:
+  api:
+    container_name: MiniBlog  # Nombre del contenedor para el servicio "api"
+    build: .  # Utiliza el Dockerfile en el directorio actual para construir la imagen
+    volumes:
+      - .:/app  # Monta el directorio actual en el directorio "/app" dentro del contenedor
+    ports:
+      - '5000:5000'  # Mapea el puerto 5000 del contenedor al puerto 5000 del host
+    environment:
+      - JWT_SECRET_KEY=sadasdsadasd  # Define variables de entorno
+      - DATABASE_URL=mysql+pymysql://miniblog:miniblog@db/appblog
+    depends_on:
+      - db  # Asegura que el servicio "db" se inicie antes del servicio "api"
+
+  db:
+    image: mysql:5.7  # Utiliza la imagen oficial de MySQL 5.7
+    container_name: mysql  # Nombre del contenedor para el servicio "db"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass  # Contraseña de root para MySQL
+      MYSQL_DATABASE: appblog  # Nombre de la base de datos
+      MYSQL_USER: miniblog  # Nombre de usuario para MySQL
+      MYSQL_PASSWORD: miniblog  # Contraseña de usuario para MySQL
+    ports:
+      - '3306:3306'  # Mapea el puerto 3306 del contenedor al puerto 3306 del host
+    volumes:
+      - mysql-data:/var/lib/mysql  # Crea un volumen llamado "mysql-data" para almacenar datos de MySQL
+
+volumes:
+  mysql-data:  # Define el volumen "mysql-data" para persistir datos de MySQL
